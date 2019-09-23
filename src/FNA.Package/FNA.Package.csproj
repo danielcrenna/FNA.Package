@@ -1,0 +1,50 @@
+﻿<Project>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoBuild>true</NoBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/FNA-XNA/FNA</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/butter-cat-games/FNA.Package</PackageProjectUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
+    <Version>19.09-pre</Version>
+    <Description>This package contains the .NET Standard 2.0 sources for https://github.com/FNA-XNA with automatic library resolution and FXC shader build support.</Description>
+    <MinClientVersion>2.5</MinClientVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\submodules\FNA\src\**\*.cs" PackagePath="FNA\src" Link="FNA\src\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\..\submodules\FNA\lib\**\*.cs" PackagePath="FNA\lib" Link="FNA\lib\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build\**" PackagePath="build" Visible="true" />
+    <Content Include="..\..\submodules\FNA\src\**\*.cs" PackagePath="FNA\src" Link="FNA\src\%(RecursiveDir)%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\submodules\FNA\lib\**\*.cs" PackagePath="FNA\lib" Link="FNA\lib\%(RecursiveDir)%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CleanContentFiles.targets">
+      <Pack>false</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="fnalibs" Version="2019.9.15.9" GeneratePathProperty="true" />
+    <PackageReference Include="MonoGame.Content.Builder" Version="3.7.0.9" />
+  </ItemGroup>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  <Import Project="CleanContentFiles.targets" />
+
+</Project>
