@@ -30,7 +30,9 @@
 
   <!-- FNA -->
   <ItemGroup>
-    <EmbeddedResource Include="$(ProjectDir)FNA\src\**\*.fxb" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)..\FNA\src\**\*.fxb">
+      <Link>FNA\src\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </EmbeddedResource>
     <Compile Include="$(MSBuildThisFileDirectory)..\FNA\**\*.cs">
       <Link>FNA\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
