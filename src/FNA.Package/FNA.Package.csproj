@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/FNA-XNA/FNA</RepositoryUrl>
     <PackageProjectUrl>https://github.com/butter-cat-games/FNA.Package</PackageProjectUrl>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-    <Version>19.09-pre8</Version>
+    <Version>19.09-ps1</Version>
     <Description>This package contains the .NET Standard 2.0 sources for https://github.com/FNA-XNA with automatic library resolution and FXC shader build support.</Description>
     <MinClientVersion>2.5</MinClientVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -38,6 +38,9 @@
     </Content>
     <Content Include="..\..\submodules\FNA\lib\**\*.cs" PackagePath="FNA\lib" Link="FNA\lib\%(RecursiveDir)%(Filename)%(Extension)">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\submodules\FNA\FNA.dll.config" PackagePath="build" Link="FNA.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
