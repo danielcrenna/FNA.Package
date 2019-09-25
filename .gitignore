@@ -328,4 +328,4 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-/src/FNA.Package/Main.cs
+/src/FNA.Package/_FNA.cs
