@@ -39,7 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)..\FNA\**\*.cs">
       <Link>FNA\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
-    <Content Include="$(MSBuildThisFileDirectory)FNA.dll.config">
+    <Content Include="$(MSBuildThisFileDirectory)app.config">
       <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
