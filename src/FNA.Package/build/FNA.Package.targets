@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+  <!-- usage -->
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <!-- fnalibs -->
-  <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)..\src\_FNA.cs">
-      <Link>FNA\%(RecursiveDir)%(Filename)%(Extension)</Link>
-    </Compile>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)..\lib\x86\**\*.*" Condition="'$(OS)' == 'Windows_NT' AND '$(Platform)' != 'x64'">
       <Link>x86\%(RecursiveDir)%(Filename)%(Extension)</Link>

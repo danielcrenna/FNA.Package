@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/FNA-XNA/FNA</RepositoryUrl>
     <PackageProjectUrl>https://github.com/butter-cat-games/FNA.Package</PackageProjectUrl>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-    <Version>20.03.0</Version>
+    <Version>21.01.2-pre-012</Version>
     <Description>
       This package contains the .NET Standard 2.0 sources for https://github.com/FNA-XNA 
       with automatic library resolution and FXC shader build support from Andrew Russell's 
@@ -22,14 +22,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="**\*.cs.pp" />
+    <Content Include="**\*.cs.pp" PackagePath="contentFiles\cs\any" Visible="true">
+      <Pack>true</Pack>
+      <BuildAction>Compile</BuildAction>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\..\submodules\FNA\src\**\*.cs;" Exclude="..\..\submodules\FNA\src\**\AssemblyInfo.cs;" PackagePath="FNA\src" Link="FNA\src\%(RecursiveDir)%(Filename)%(Extension)" />
     <Compile Include="..\..\submodules\FNA\lib\**\*.cs" PackagePath="FNA\lib" Link="FNA\lib\%(RecursiveDir)%(Filename)%(Extension)" />
-    <Compile Include="$(Pkgfnalibs)\src\_FNA.cs" PackagePath="src" Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="$(Pkgfnalibs)\lib\**" PackagePath="lib" Visible="false" Link="lib\%(RecursiveDir)%(Filename)%(Extension)" />
-    <Content Include="$(Pkgfnalibs)\src\_FNA.cs" PackagePath="src" Visible="true" />
     <Content Include="build\**" PackagePath="build" Visible="true" />
     <Content Include="..\..\submodules\FNA\licenses\**" PackagePath="FNA" Link="FNA\%(RecursiveDir)%(Filename)%(Extension)">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -56,7 +62,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="fnalibs" Version="20.3.0" GeneratePathProperty="true">
+    <PackageReference Include="fnalibs" Version="21.01.0" GeneratePathProperty="true">
       <IncludeAssets>runtime; compile; native; analyzers; buildtransitive</IncludeAssets>
       <ExcludeAssets>build;contentFiles;</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
