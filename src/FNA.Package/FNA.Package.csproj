@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/FNA-XNA/FNA</RepositoryUrl>
     <PackageProjectUrl>https://github.com/butter-cat-games/FNA.Package</PackageProjectUrl>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-    <Version>21.01.2-pre-012</Version>
+    <Version>21.01.2</Version>
     <Description>
       This package contains the .NET Standard 2.0 sources for https://github.com/FNA-XNA 
       with automatic library resolution and FXC shader build support from Andrew Russell's 
